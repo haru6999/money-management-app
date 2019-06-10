@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>家計簿アプリ</title>
+    <!-- <link rel="shortcut icon" href="image/icon.png"> -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    
+    <!-- ホーム画面に追加する -->
+    <!-- <link rel="apple-touch-icon-precomposed" href="image/icon.png" /> -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </head>
+  <body>
+    <main>
+        <div class="pc">
+            <p>スマートフォンでご覧ください</p>
+        </div>
+        <div class="sp">
+            <!-- １ページ目 -->
+            <section class="input">
+                <!-- 支出ページ -->
+                <form name="myform1" id="spendingForm"> 
+                    <article class="money">
+                        <p>金額</p>
+                        <input type="text" name="money">
+                    </article>
+                    <article class="category">
+                        <p>カテゴリー</p>
+                        <select name="category">
+                            <option value="食費" label="食費">食費</option>
+                            <option value="外食費" label="外食費">外食費</option>
+                            <option value="日用品" label="日用品">日用品</option>
+                            <option value="交通費" label="交通費">交通費</option>
+                            <option value="衣服" label="衣服">衣服</option>
+                            <option value="交際費" label="交際費">交際費</option>
+                            <option value="趣味" label="趣味">趣味</option>
+                            <option value="その他" label="その他">その他</option>
+                        </select>
+                    </article>
+                    <article class="date">
+                        <p>日付</p>
+                        <input type="date" name="date" id="today">
+                        <script type="text/javascript">
+                            //今日の日時を表示
+                                window.onload = function () {
+                                    //今日の日時を表示
+                                    var date = new Date()
+                                    var year = date.getFullYear()
+                                    var month = date.getMonth() + 1
+                                    var day = date.getDate()
+                                  
+                                    var toTwoDigits = function (num, digit) {
+                                      num += ''
+                                      if (num.length < digit) {
+                                        num = '0' + num
+                                      }
+                                      return num
+                                    }
+                                    
+                                    var yyyy = toTwoDigits(year, 4)
+                                    var mm = toTwoDigits(month, 2)
+                                    var dd = toTwoDigits(day, 2)
+                                    var ymd = yyyy + "-" + mm + "-" + dd;
+                                    
+                                    document.getElementById("today").value = ymd;
+                                }
+                        </script>
+                    </article>
+                    <article class="preservation">
+                        <button name="btn1" type="button" class="btn">送信</button>
+                    </article>
+                </form> 
+
+                <!-- 収入ページ -->
+                <form name="myform2" id="incomeForm"> 
+                    <article class="money">
+                        <p>金額</p>
+                        <input type="text" name="money">
+                    </article>
+                    <article class="category">
+                        <p>カテゴリー</p>
+                        <select name="category">
+                            <option value="給料" label="給料">給料</option>
+                            <option value="その他" label="その他">その他</option>
+                        </select>
+                    </article>
+                    <article class="date">
+                        <p>日付</p>
+                        <input type="date" name="date" id="today">
+                        <script type="text/javascript">
+                            //今日の日時を表示
+                            window.onload = function () {
+                                //今日の日時を表示
+                                var date = new Date()
+                                var year = date.getFullYear()
+                                var month = date.getMonth() + 1
+                                var day = date.getDate()
+                                
+                                var toTwoDigits = function (num, digit) {
+                                    num += ''
+                                    if (num.length < digit) {
+                                    num = '0' + num
+                                    }
+                                    return num
+                                }
+                                
+                                var yyyy = toTwoDigits(year, 4)
+                                var mm = toTwoDigits(month, 2)
+                                var dd = toTwoDigits(day, 2)
+                                var ymd = yyyy + "-" + mm + "-" + dd;
+                                
+                                document.getElementById("today").value = ymd;
+                            }
+                        </script>
+                    </article>
+                    <article class="preservation">
+                        <button name="btn1" type="button" class="btn">送信</button>
+                    </article>  
+                </form> 
+                
+                <aside>
+                    <input type="button" id="spending" value="支出">
+                    <input type="button" id="income" value="収入">
+                </aside>
+                
+            </section>
+            <!-- ２ページ目 -->
+            <section class="calender">
+                <button id="prev" type="button">前の月</button>
+                <button id="next" type="button">次の月</button>
+                <div id="calendar"></div>
+                <div id="pops">
+                    <i class="fas fa-times cross"></i>
+                </div>
+            </section>
+            <footer>
+                <i class="fas fa-pencil-alt" id="footerLeft"></i><i class="far fa-calendar-alt" id="footerRight"></i>
+            </footer>
+        </div>
+        
+    </main>
+    
+    <script src="js/index.js"></script>
+  </body>
+</html>

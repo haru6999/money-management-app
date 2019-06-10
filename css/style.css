@@ -1,0 +1,160 @@
+/* pc画面での表示*/
+@media screen and (min-width:480px) {
+    .pc p{
+      position: relative;
+      text-align: center;
+      top:300px;
+      font-size: 40px;
+    }
+    .sp{
+      display:none;
+    }
+}
+  
+/*スマホ版の時pcの文字を非表示*/
+@media screen and (max-width: 499px){
+    .pc{
+        display: none;
+    }
+}
+html,body,main{
+    margin: 0 auto;
+    width: 100%;
+    height:100%;
+}
+
+.input{
+    display: inline;
+}
+.calender{
+    display: none;
+}
+/* １ページ目 */
+.input input,.input select{
+    border: solid 1px gray; 
+}
+#spendingForm{
+    display: inline;
+}
+#incomeForm{
+    display: none;
+}
+
+/* ２ページ目 */
+#calendar {
+    display: flex;
+    flex-wrap: wrap;
+}
+section {
+    margin: 0 auto;
+    width:100%;
+    height:100%;
+}
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width:100%;
+    height:70vh;
+    margin-top:40px;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+.weeks{
+    padding: 0;
+    border:none;
+}
+
+td:first-child {
+    color: red;
+}
+
+td:last-child {
+    color: royalblue;
+}
+
+td.is-disabled {
+    color: #ccc;
+}
+
+#calendar ul{
+    display:none;
+}
+
+
+#pops{
+    position:fixed;
+    height:200px;
+    width:100%;
+    bottom: -250px;
+    left:0px;
+    z-index:5;
+    background: blue;
+    opacity: 0.5;
+    overflow: scroll;
+    padding-bottom:50px;
+    animation:none;
+}
+@keyframes popup {
+  0% {bottom:-250px;}
+  100% {bottom:0px;}
+}
+@keyframes popdown {
+    0% {bottom:0px;}
+    100% {bottom:-250px;}
+}
+.cross{
+    position: absolute;
+    top:7px;
+    right:20px;
+    font-size: 1.8em;
+}
+.calenderP{
+
+}
+.calenderUl{
+    padding:0 0 0 10%;
+    list-style: none;
+    display: none;
+}
+#pops li{
+
+}
+.liCategory{
+    width:40%;
+    float: left;
+    padding-left: 20px;
+}
+.liMoney{
+    width:40%;
+    float: left;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* footer */
+footer{
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:auto;
+    padding: 10px 0px;
+    background-color: yellow;
+    z-index:10;
+}
+footer i{
+    width:calc(100%/2);
+    text-align: center;
+    font-size: 1.5em;
+    height: 100%;
+}
