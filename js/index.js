@@ -43,22 +43,26 @@ jQuery(function($){
 
 
 
-let money;
-let category;
-let year0;
-let month0;
-let date0;
+
 // １ページ目
-document.getElementsByClassName('btn').addEventListener('click', function() {
-    console.log( document.myform.money.value );
-    console.log( document.myform.category.value );
-    console.log( document.myform.date.value );
+
+let sum = 0;
+// 支出
+document.myform1.btn.addEventListener('click', function() {
+    let money;
+    let category;
+    let year0;
+    let month0;
+    let date0;
+    console.log( document.myform1.money.value );
+    console.log( document.myform1.category.value );
+    console.log( document.myform1.date.value );
     // document.myform.submit();
     // let calendarHtml = ''
     // calendarHtml += 'document.myform.date.value'
-    money = document.myform.money.value;
-    category = document.myform.category.value
-    let result = document.myform.date.value.split('-');
+    money = document.myform1.money.value;
+    category = document.myform1.category.value
+    let result = document.myform1.date.value.split('-');
     year0 = result[0];
     let month1 = result[1];
     let date1 = result[2];
@@ -85,9 +89,56 @@ document.getElementsByClassName('btn').addEventListener('click', function() {
     let newTag2 = document.createElement("li");
     newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">'+money+'円</p>';
     target2.appendChild(newTag2);
-
-    
+    sum -= Number(money);
+    console.log("合計:"+sum);
 });
+
+// 収入
+document.myform2.btn.addEventListener('click', function() {
+    let money;
+    let category;
+    let year0;
+    let month0;
+    let date0;
+    console.log( document.myform2.money.value );
+    console.log( document.myform2.category.value );
+    console.log( document.myform2.date.value );
+    // document.myform.submit();
+    // let calendarHtml = ''
+    // calendarHtml += 'document.myform.date.value'
+    money = document.myform2.money.value;
+    category = document.myform2.category.value
+    let result = document.myform2.date.value.split('-');
+    year0 = result[0];
+    let month1 = result[1];
+    let date1 = result[2];
+    // 月と日の表示を揃える
+    if(01<=month1 && month1<=09){
+        let month2 = month1.split('0');
+        month0 = month2[1];
+    }else{
+        month0 = month1;
+    }
+    if(01<=date1 && date1<=09){
+        let date2 = date1.split('0');
+        date0 = date2[1];
+    }else{
+        date0 = date1;
+    }
+    console.log(year0);
+    console.log(month0);
+    console.log(date0);
+
+    // popupのli要素の追加
+    let id2 = String(year0)+String(month0)+String(date0);
+    var target2 = document.getElementById(id2);
+    let newTag2 = document.createElement("li");
+    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">+'+money+'円</p>';
+    target2.appendChild(newTag2);
+    sum += Number(money);
+    console.log("合計:"+sum);
+});
+
 
 
 // ２ページ目

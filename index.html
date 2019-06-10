@@ -68,11 +68,12 @@
                                     var ymd = yyyy + "-" + mm + "-" + dd;
                                     
                                     document.getElementById("today").value = ymd;
+                                    document.getElementById("today2").value = ymd;
                                 }
                         </script>
                     </article>
                     <article class="preservation">
-                        <button name="btn1" type="button" class="btn">送信</button>
+                        <button name="btn" type="button" class="btn">送信</button>
                     </article>
                 </form> 
 
@@ -91,37 +92,12 @@
                     </article>
                     <article class="date">
                         <p>日付</p>
-                        <input type="date" name="date" id="today">
-                        <script type="text/javascript">
-                            //今日の日時を表示
-                            window.onload = function () {
-                                //今日の日時を表示
-                                var date = new Date()
-                                var year = date.getFullYear()
-                                var month = date.getMonth() + 1
-                                var day = date.getDate()
-                                
-                                var toTwoDigits = function (num, digit) {
-                                    num += ''
-                                    if (num.length < digit) {
-                                    num = '0' + num
-                                    }
-                                    return num
-                                }
-                                
-                                var yyyy = toTwoDigits(year, 4)
-                                var mm = toTwoDigits(month, 2)
-                                var dd = toTwoDigits(day, 2)
-                                var ymd = yyyy + "-" + mm + "-" + dd;
-                                
-                                document.getElementById("today").value = ymd;
-                            }
-                        </script>
+                        <input type="date" name="date" id="today2">
                     </article>
                     <article class="preservation">
-                        <button name="btn1" type="button" class="btn">送信</button>
+                        <button name="btn" type="button" class="btn">送信</button>
                     </article>  
-                </form> 
+                </form>  
                 
                 <aside>
                     <input type="button" id="spending" value="支出">
