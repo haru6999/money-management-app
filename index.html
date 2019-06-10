@@ -45,32 +45,6 @@
                     <article class="date">
                         <p>日付</p>
                         <input type="date" name="date" id="today">
-                        <script type="text/javascript">
-                            //今日の日時を表示
-                                window.onload = function () {
-                                    //今日の日時を表示
-                                    var date = new Date()
-                                    var year = date.getFullYear()
-                                    var month = date.getMonth() + 1
-                                    var day = date.getDate()
-                                  
-                                    var toTwoDigits = function (num, digit) {
-                                      num += ''
-                                      if (num.length < digit) {
-                                        num = '0' + num
-                                      }
-                                      return num
-                                    }
-                                    
-                                    var yyyy = toTwoDigits(year, 4)
-                                    var mm = toTwoDigits(month, 2)
-                                    var dd = toTwoDigits(day, 2)
-                                    var ymd = yyyy + "-" + mm + "-" + dd;
-                                    
-                                    document.getElementById("today").value = ymd;
-                                    document.getElementById("today2").value = ymd;
-                                }
-                        </script>
                     </article>
                     <article class="preservation">
                         <button name="btn" type="button" class="btn">送信</button>
@@ -107,15 +81,22 @@
             </section>
             <!-- ２ページ目 -->
             <section class="calender">
-                <button id="prev" type="button">前の月</button>
-                <button id="next" type="button">次の月</button>
+                <button id="prev" type="button"><i class="fas fa-chevron-left"></i></button>
+                <button id="next" type="button"><i class="fas fa-chevron-right"></i></button>
                 <div id="calendar"></div>
                 <div id="pops">
                     <i class="fas fa-times cross"></i>
                 </div>
             </section>
+            <!-- ３ページ目 -->
+            <section class="confirmation">
+                <div id="conf">
+
+                </div>
+
+            </section>
             <footer>
-                <i class="fas fa-pencil-alt" id="footerLeft"></i><i class="far fa-calendar-alt" id="footerRight"></i>
+                <i class="fas fa-pencil-alt" id="footerLeft"></i><i class="far fa-calendar-alt" id="footerCenter"></i><i class="fas fa-coins" id="footerRight"></i>
             </footer>
         </div>
         

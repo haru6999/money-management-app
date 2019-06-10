@@ -6,13 +6,42 @@ jQuery(function($){
         $('.calender').css({
             'display':'none'
         });
+        $('.confirmation').css({
+            'display':'none'
+        });
+        $('#pops').css({
+            'animation': 'none',
+            'bottom':'-250px'
+        });
+    });
+    $('#footerCenter').click(function(){
+        $('.input').css({
+            'display':'none'
+        });
+        $('.calender').css({
+            'display':'inline'
+        });
+        $('.confirmation').css({
+            'display':'none'
+        });
+        $('#pops').css({
+            'animation': 'none',
+            'bottom':'-250px'
+        });
     });
     $('#footerRight').click(function(){
         $('.input').css({
             'display':'none'
         });
         $('.calender').css({
+            'display':'none'
+        });
+        $('.confirmation').css({
             'display':'inline'
+        });
+        $('#pops').css({
+            'animation': 'none',
+            'bottom':'-250px'
         });
     });
     $('#spending').click(function(){
@@ -33,9 +62,9 @@ jQuery(function($){
     });
     // カレンダー一覧のばってん
     $('.cross').click(function(){
-        
         $('#pops').css({
-            'animation': 'popdown 1s ease-out',
+            'animation': 'none',
+            'animation': 'popdown 0.5s ease-out',
             'bottom':'-250px'
         });
     });
@@ -44,9 +73,12 @@ jQuery(function($){
 
 
 
-// １ページ目
-
 let sum = 0;
+var yyyy;
+var mm;
+var dd;
+
+// １ページ目
 // 支出
 document.myform1.btn.addEventListener('click', function() {
     let money;
@@ -87,12 +119,12 @@ document.myform1.btn.addEventListener('click', function() {
     let id2 = String(year0)+String(month0)+String(date0);
     var target2 = document.getElementById(id2);
     let newTag2 = document.createElement("li");
-    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">'+money+'円</p>';
+    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">'+money+'円</p><button type="button" class="delate" onclick="delate(this)">削除</button>';
     target2.appendChild(newTag2);
     sum -= Number(money);
     console.log("合計:"+sum);
+    document.getElementById("sum").innerHTML =sum+'円';
 });
-
 // 収入
 document.myform2.btn.addEventListener('click', function() {
     let money;
@@ -133,11 +165,13 @@ document.myform2.btn.addEventListener('click', function() {
     let id2 = String(year0)+String(month0)+String(date0);
     var target2 = document.getElementById(id2);
     let newTag2 = document.createElement("li");
-    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">+'+money+'円</p>';
+    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">+'+money+'円</p><button type="button" class="delate" onclick="delate(this)">削除</button>';
     target2.appendChild(newTag2);
     sum += Number(money);
     console.log("合計:"+sum);
+    document.getElementById("sum").innerHTML =sum+'円';
 });
+
 
 
 
@@ -234,10 +268,6 @@ function moveCalendar(e) {
     showCalendar(year, month)
 }
 
-document.querySelector('#prev').addEventListener('click', moveCalendar)
-document.querySelector('#next').addEventListener('click', moveCalendar)
-
-showCalendar(year, month)
 
 var target = document.getElementById("pops");
 // for(var y=2010;y<=2020;y++){
@@ -256,6 +286,12 @@ for(var y=2019;y<=2019;y++){
     } 
 }
 
+// 削除
+function delate(element) {
+    $(element).parent().remove(); 
+}
+
+
 // popupの中身
 function getID(element) {
     // idはカレンダー一覧のtd
@@ -270,7 +306,58 @@ function getID(element) {
         'display':'inline'
     });
     $('#pops').css({
-        'animation': 'popup 1s ease-out',
+        'animation': 'popup 0.5s ease-out',
         'bottom':'0px'
     })
+}
+
+var target2= document.getElementById("conf");
+var newTagPop2 = document.createElement("div");
+newTagPop2.innerHTML = '<h2>貯金額</h2><p id="sum">'+sum+'円</p>';
+target2.appendChild(newTagPop2);
+
+document.querySelector('#prev').addEventListener('click', moveCalendar)
+document.querySelector('#next').addEventListener('click', moveCalendar)
+
+showCalendar(year, month)
+// 今日の日付
+window.onload = function () {
+    //今日の日時を表示
+    var date = new Date()
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    var toTwoDigits = function (num, digit) {
+    num += ''
+    if (num.length < digit) {
+        num = '0' + num
+    }
+    return num
+    }
+    
+    yyyy = toTwoDigits(year, 4)
+    mm = toTwoDigits(month, 2)
+    dd = toTwoDigits(day, 2)
+    var ymd = yyyy + "-" + mm + "-" + dd;
+    
+    document.getElementById("today").value = ymd;
+    document.getElementById("today2").value = ymd;
+
+    
+    let mm0;
+    let dd0;
+    if(01<=mm && mm<=09){
+        let mm2 = mm.split('0');
+        mm0 = mm2[1];
+    }else{
+        mm0 = mm;
+    }
+    if(01<=dd && dd<=09){
+        let dd2 = dd.split('0');
+        dd0 = dd2[1];
+    }else{
+        dd0 = dd;
+    }
+    $('#td'+String(yyyy)+String(mm0)+String(dd0)).addClass("is-today");
 }
