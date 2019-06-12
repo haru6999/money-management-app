@@ -1,3 +1,12 @@
+:root{
+    --blue: #8fd3f5;
+    --skyblue: #ceebfb;
+    --yellow: #f9e260;
+    --green:#9fe260;
+    --orange:#f4a23a;
+  }
+
+
 /* pc画面での表示*/
 @media screen and (min-width:480px) {
     .pc p{
@@ -55,17 +64,23 @@ section {
     font-size: 1.5em;
     top:40px;
     left:40px;
+    color:var(--green);
+    width:80px;
 }
 #next{
     position: absolute;
     font-size: 1.5em;
     top:40px;
     right:40px;
+    color:var(--green);
+    width:80px;
 }   
 h1 {
     font-size: 18px;
     text-align: center;
     margin:40px 0 0 0;
+    color:#4d4d4d;
+    font-weight: normal;
 }
 
 table {
@@ -77,9 +92,9 @@ table {
 }
 
 td {
-    border: 1px solid #ddd;
     padding: 5px;
     text-align: center;
+    color:#666666;
 }
 .weeks{
     padding: 0;
@@ -87,37 +102,46 @@ td {
 }
 
 td:first-child {
-    color: red;
+    color: #f577ab;
 }
 
 td:last-child {
-    color: royalblue;
+    color: var(--skyblue);
 }
 
 td.is-disabled {
     color: #ccc;
 }
 td.is-today {
-    color: red;
+    background-image:url("../image/gray.png");
+    background-size:100%;
+    background-position: center center; 
+    background-repeat: no-repeat;
 }
-
+#calendar{
+    margin-bottom:0px;
+    animation:none;
+}
+@keyframes calendardown {
+    0% {margin-bottom:200px;}
+    100% {margin-bottom:0px;}
+}
 #calendar ul{
     display:none;
 }
-
-
 #pops{
     position:fixed;
     height:200px;
     width:100%;
     bottom: -250px;
     left:0px;
-    z-index:5;
-    background: blue;
-    opacity: 0.5;
+    z-index:100;
+    background: white;
+    opacity: 1;
     overflow: scroll;
     padding-bottom:50px;
     animation:none;
+    
 }
 @keyframes popup {
   0% {bottom:-250px;}
@@ -127,39 +151,65 @@ td.is-today {
     0% {bottom:0px;}
     100% {bottom:-250px;}
 }
+
 .cross{
     position: absolute;
-    top:7px;
+    top:0px;
     right:20px;
     font-size: 1.8em;
+    color:white;
+    height:30px;
+    line-height:30px;
+}
+.bar{
+    width:100%;
+    height:30px;
+    background-color: var(--green);
 }
 .calenderP{
-
+    position: absolute;
+    top:-16px;
+    left:25px;
+    font-size: 16px;
+    width:auto;
+    height:30px;
+    line-height:30px;
+    color:white;
 }
 .calenderUl{
     padding:0 0 0 10%;
     list-style: none;
     display: none;
+    height:0;
 }
 #pops li{
-
+    height:40px;
+    border-bottom:solid 1px #cccccc;
 }
 .liCategory{
     width:30%;
     float: left;
     padding-left: 20px;
+    margin:0;
+    line-height:35px;
+    color:#4d4d4d;
 }
 .liMoney{
     width:30%;
     float: left;
     text-align: right;
     padding-right: 20px;
+    margin:0;
+    line-height:35px;
+    color:#4d4d4d;
 }
 .delate{
-    width:20%;
+    width:25%;
     float: left;
-    text-align: center;
-    padding-right: 20px;
+    text-align: right;
+    line-height:35px;
+    color:#f577ab;
+    padding-right:20px;
 }
 
 /* ３ページ目 */
@@ -175,12 +225,21 @@ footer{
     width:100%;
     height:auto;
     padding: 10px 0px;
-    background-color: yellow;
-    z-index:10;
+    background-color: var(--skyblue);
+    z-index:1000;
 }
 footer i{
     width:calc(100%/3);
     text-align: center;
     font-size: 1.5em;
     height: 100%;
+}
+#footerLeft{
+    color:var(--blue);
+}
+#footerCenter{
+    color:#f9fafc;
+}
+#footerRight{
+    color:#f9fafc;
 }

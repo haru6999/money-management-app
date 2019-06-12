@@ -1,5 +1,14 @@
 jQuery(function($){
     $('#footerLeft').click(function(){
+        $('#footerLeft').css({
+            'color':'var(--blue)'
+        });
+        $('#footerCenter').css({
+            'color':'#f9fafc'
+        });
+        $('#footerRight').css({
+            'color':'#f9fafc'
+        });
         $('.input').css({
             'display':'inline'
         });
@@ -12,9 +21,21 @@ jQuery(function($){
         $('#pops').css({
             'animation': 'none',
             'bottom':'-250px'
+        });
+        $('#calendar').css({
+            'margin-bottom':'0px'
         });
     });
     $('#footerCenter').click(function(){
+        $('#footerLeft').css({
+            'color':'#f9fafc'
+        });
+        $('#footerCenter').css({
+            'color':'var(--blue)'
+        });
+        $('#footerRight').css({
+            'color':'#f9fafc'
+        });
         $('.input').css({
             'display':'none'
         });
@@ -27,9 +48,21 @@ jQuery(function($){
         $('#pops').css({
             'animation': 'none',
             'bottom':'-250px'
+        });
+        $('#calendar').css({
+            'margin-bottom':'0px'
         });
     });
     $('#footerRight').click(function(){
+        $('#footerLeft').css({
+            'color':'#f9fafc'
+        });
+        $('#footerCenter').css({
+            'color':'#f9fafc'
+        });
+        $('#footerRight').css({
+            'color':'var(--blue)'
+        });
         $('.input').css({
             'display':'none'
         });
@@ -42,6 +75,9 @@ jQuery(function($){
         $('#pops').css({
             'animation': 'none',
             'bottom':'-250px'
+        });
+        $('#calendar').css({
+            'margin-bottom':'0px'
         });
     });
     $('#spending').click(function(){
@@ -66,6 +102,10 @@ jQuery(function($){
             'animation': 'none',
             'animation': 'popdown 0.5s ease-out',
             'bottom':'-250px'
+        });
+        $('#calendar').css({
+            'margin-bottom':'0px',
+            'animation':'calendardown 0.5s ease-out'
         });
     });
 });
@@ -308,7 +348,11 @@ function getID(element) {
     $('#pops').css({
         'animation': 'popup 0.5s ease-out',
         'bottom':'0px'
-    })
+    });
+    $('#calendar').css({
+        'margin-bottom':'200px',
+        'animation':'none'
+    });
 }
 
 var target2= document.getElementById("conf");
@@ -318,6 +362,7 @@ target2.appendChild(newTagPop2);
 
 document.querySelector('#prev').addEventListener('click', moveCalendar)
 document.querySelector('#next').addEventListener('click', moveCalendar)
+
 
 showCalendar(year, month)
 // 今日の日付
