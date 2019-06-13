@@ -426,39 +426,39 @@ function getID(element) {
     });
 }
 
-// ドーナツチャート
-var doughnutData = [
-    {
-      value: 500,
-      color:"#9bcad0",
-      highlight: "#a7d7de",
-      label: "スマートフォン"
-    },
-    {
-      value: 150,
-      color: "#d5a87f",
-      highlight: "#e4b68a",
-      label: "PC"
-    },
-    {
-      value: 80,
-      color: "#cca9ca",
-      highlight: "#dcb7da",
-      label: "タブレット"
-    },
-    {
-      value: 20,
-      color: "#edef9c",
-      highlight: "#fcfea6",
-      label: "その他デバイス"
-    }
-];
-window.onload = function(){
-    var ctx = document.getElementById("graph").getContext("2d");
-    window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
-        responsive : true
-    });
-}
+// // ドーナツチャート
+// var doughnutData = [
+//     {
+//       value: 500,
+//       color:"#9bcad0",
+//       highlight: "#a7d7de",
+//       label: "スマートフォン"
+//     },
+//     {
+//       value: 150,
+//       color: "#d5a87f",
+//       highlight: "#e4b68a",
+//       label: "PC"
+//     },
+//     {
+//       value: 80,
+//       color: "#cca9ca",
+//       highlight: "#dcb7da",
+//       label: "タブレット"
+//     },
+//     {
+//       value: 20,
+//       color: "#edef9c",
+//       highlight: "#fcfea6",
+//       label: "その他デバイス"
+//     }
+// ];
+// window.onload = function(){
+//     var ctx = document.getElementById("graph").getContext("2d");
+//     window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+//         responsive : true
+//     });
+// }
 
 
 var target2= document.getElementById("conf");
