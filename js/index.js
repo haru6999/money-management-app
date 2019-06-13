@@ -87,6 +87,12 @@ jQuery(function($){
         $('#incomeForm').css({
             'display':'none'
         });
+        $('#spending').css({
+            'color':'#4D4D4D'
+        });
+        $('#income').css({
+            'color':'#cccccc'
+        });
     });
     $('#income').click(function(){
         $('#spendingForm').css({
@@ -94,6 +100,12 @@ jQuery(function($){
         });
         $('#incomeForm').css({
             'display':'inline'
+        });
+        $('#spending').css({
+            'color':'#cccccc'
+        });
+        $('#income').css({
+            'color':'#4D4D4D'
         });
     });
     // カレンダー一覧のばってん
@@ -121,6 +133,21 @@ var dd;
 // １ページ目
 // 支出
 document.myform1.btn.addEventListener('click', function() {
+
+    if(document.myform1.money.value.match(/[^0-9]+/) || document.myform1.money.value==""){
+        $('#comment').html('金額を半角数字で記入してください');
+        $('#comment').css({
+            'animation': 'fade-in 1s'
+        });
+        setTimeout(function(){
+            $('#comment').html(" ");
+            $('#comment').css({
+                'animation': 'none'
+            });
+        },1000);   
+        return;
+    }
+
     let money;
     let category;
     let year0;
@@ -159,14 +186,40 @@ document.myform1.btn.addEventListener('click', function() {
     let id2 = String(year0)+String(month0)+String(date0);
     var target2 = document.getElementById(id2);
     let newTag2 = document.createElement("li");
-    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">-'+money+'円</p><button type="button" class="delate" onclick="delate(this)">削除</button>';
+    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">-'+money+'円</p><button type="button" class="delate" onclick="delate(this)" id="0-'+money+'">削除</button>';
     target2.appendChild(newTag2);
     sum -= Number(money);
     console.log("合計:"+sum);
     document.getElementById("sum").innerHTML =sum+'円';
+    $('#comment').html('保存されました');
+    $('#comment').css({
+        'animation': 'fade-in 2s'
+    });
+    setTimeout(function(){
+        $('#comment').html(" ");
+        $('#comment').css({
+            'animation': 'none'
+        });
+   },2000);
+    
 });
 // 収入
 document.myform2.btn.addEventListener('click', function() {
+
+    if(document.myform2.money.value.match(/[^0-9]+/) || document.myform2.money.value==""){
+        $('#comment').html('金額を半角数字で記入してください');
+        $('#comment').css({
+            'animation': 'fade-in 1s'
+        });
+        setTimeout(function(){
+            $('#comment').html(" ");
+            $('#comment').css({
+                'animation': 'none'
+            });
+        },1000);   
+        return;
+    }
+
     let money;
     let category;
     let year0;
@@ -205,11 +258,21 @@ document.myform2.btn.addEventListener('click', function() {
     let id2 = String(year0)+String(month0)+String(date0);
     var target2 = document.getElementById(id2);
     let newTag2 = document.createElement("li");
-    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">+'+money+'円</p><button type="button" class="delate" onclick="delate(this)">削除</button>';
+    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">+'+money+'円</p><button type="button" class="delate" onclick="delate(this)" id="1-'+money+'">削除</button>';
     target2.appendChild(newTag2);
     sum += Number(money);
     console.log("合計:"+sum);
     document.getElementById("sum").innerHTML =sum+'円';
+    $('#comment').html('保存されました');
+    $('#comment').css({
+        'animation': 'fade-in 2s'
+    });
+    setTimeout(function(){
+        $('#comment').html(" ");
+        $('#comment').css({
+            'animation': 'none'
+        });
+   },2000);
 });
 
 
@@ -325,10 +388,18 @@ for(var y=2010;y<=2020;y++){
         }
     } 
 }
-
 // 削除
 function delate(element) {
     $(element).parent().remove(); 
+    var ele = element.id.split('-');
+    if(ele[0] == 0){
+        sum += Number(ele[1]);
+        document.getElementById("sum").innerHTML =sum+'円';
+    }else if(ele[0] == 1){
+        sum -= Number(ele[1]);
+        document.getElementById("sum").innerHTML =sum+'円';
+    }
+    
 }
 
 
@@ -350,10 +421,45 @@ function getID(element) {
         'bottom':'0px'
     });
     $('#calendar').css({
-        'margin-bottom':'200px',
+        'margin-bottom':'250px',
         'animation':'none'
     });
 }
+
+// ドーナツチャート
+var doughnutData = [
+    {
+      value: 500,
+      color:"#9bcad0",
+      highlight: "#a7d7de",
+      label: "スマートフォン"
+    },
+    {
+      value: 150,
+      color: "#d5a87f",
+      highlight: "#e4b68a",
+      label: "PC"
+    },
+    {
+      value: 80,
+      color: "#cca9ca",
+      highlight: "#dcb7da",
+      label: "タブレット"
+    },
+    {
+      value: 20,
+      color: "#edef9c",
+      highlight: "#fcfea6",
+      label: "その他デバイス"
+    }
+];
+window.onload = function(){
+    var ctx = document.getElementById("graph").getContext("2d");
+    window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+        responsive : true
+    });
+}
+
 
 var target2= document.getElementById("conf");
 var newTagPop2 = document.createElement("div");

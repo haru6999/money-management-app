@@ -9,6 +9,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     
     <!-- ホーム画面に追加する -->
     <!-- <link rel="apple-touch-icon-precomposed" href="image/icon.png" /> -->
@@ -24,12 +25,13 @@
             <!-- １ページ目 -->
             <section class="input">
                 <div class="bg"></div>
+                <p id="comment"></p>
                 <!-- 支出ページ -->
                 <form name="myform1" id="spendingForm"> 
                     <div class="bg2">
                         <article class="money">
                             <div class="artP"><p>金額</p></div>
-                            <input type="text" name="money" class="artI">
+                            <input type="text" name="money" class="artI" onSubmit="return check()">
                         </article>
                         <article class="category">
                             <div class="artP"><p>カテゴリー</p></div>
@@ -59,12 +61,13 @@
                         <div class="bg2">
                             <article class="money">
                                 <div class="artP"><p>金額</p></div>
-                                <input type="text" name="money" class="artI">
+                                <input type="text" name="money" class="artI" onSubmit="return check()">
                             </article>
                             <article class="category">
                                 <div class="artP"><p>カテゴリー</p></div>
                                 <select name="category" class="artI">
                                     <option value="給料" label="給料">給料</option>
+                                    <option value="小遣い" label="小遣い">小遣い</option>
                                     <option value="その他" label="その他">その他</option>   
                                 </select>
                             </article>
@@ -85,7 +88,7 @@
             </section>
             <!-- ２ページ目 -->
             <section class="calender">
-                <button id="prev" type="button"><i class="fas fa-chevron-left"></i></button>
+                <button id="prev" type="button"><i class="fas fa-chevron-left"　id="prev"></i></button>
                 <button id="next" type="button"><i class="fas fa-chevron-right"></i></button>
                 <div id="calendar"></div>
                 <div id="pops">
@@ -99,6 +102,9 @@
                 <div class="circleBox">
                     <div class="circle">
                         <div id="conf">
+                            <div style="width: 50%">
+                                <canvas id="graph" height="450" width="600"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,5 +117,6 @@
     </main>
     
     <script src="js/index.js"></script>
+    
   </body>
 </html>

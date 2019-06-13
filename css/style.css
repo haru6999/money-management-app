@@ -43,11 +43,26 @@ html,body,main{
     width:100%;
     height:100vh;
     background-image: url("../image/bg.png");
-    background-size:contain;
+    background-size: cover;
     z-index:-10;
     position: fixed;
     opacity: 0.6;
 }
+#comment{
+    position: absolute;
+    top:78vh;
+    text-align: center;
+    width:100%;
+    height:5vh;
+    margin: 0 auto;
+    color:#999999;
+    animation:none;
+}
+@keyframes fade-in {
+    0% {opacity: 0}
+    50%{opacity: 1}
+    100% {opacity: 0}
+  }
 .input input,.input select{
     border: solid 1px gray; 
 }
@@ -59,8 +74,8 @@ html,body,main{
 }
 .bg2{
     width:70%;
-    height:55%;
-    margin: 40% 15% 0 15%;
+    height:55vh;
+    margin: 20vh 15% 0 15%;
     border-radius: 25px;
     background-color:white;
     position: fixed;
@@ -87,7 +102,7 @@ html,body,main{
     margin-left: 10%;
 }
 .money{
-    margin-top: 30px !important;
+    margin-top: 10vh !important;
 }
 .btn{
     width:40%;
@@ -100,8 +115,58 @@ html,body,main{
     letter-spacing: 5px;
     position: absolute;
     bottom:20px;
-    left:0px;s
+    left:0px;
+    border: none;
+    border-bottom: solid 1px #627295;  
+    border-right: solid 1px #627295;     
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
 }
+.btn:active {
+    transform: translateY(1px);
+    transform: translateX(1px);
+    border-bottom: none;
+    border-right: none;
+  }
+aside{
+    position: absolute;
+    top:25vh;
+    left:25%;
+    width:50%;
+    height:30px;
+    background-color: white;
+    border:solid 1px var(--orange);
+    border-radius: 1.6em;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(244, 162, 58, .5);
+}
+#spending{
+    background-color: white;
+    border:none;
+    position: absolute;
+    top:0px;
+    left:10%;
+    width:40%;
+    height:30px;
+    letter-spacing: 5px;
+    color:#4D4D4D;
+    border-right:solid 1px #cccccc;
+    padding:0 10% 0 0;
+    text-align: center;
+}
+#income{
+    background-color: white;
+    border:none;
+    position: absolute;
+    top:0px;
+    right:10%;
+    width:30%;
+    height:30px;
+    letter-spacing: 5px;
+    color:#CCCCCC;
+    padding:0;
+    text-align: center;
+}
+
 /* ２ページ目 */
 #calendar {
     display: flex;
@@ -128,6 +193,9 @@ section {
     left:40px;
     color:var(--green);
     width:80px;
+}
+#prev i::before,#next i::before{
+    z-index: -1;
 }
 #next{
     position: absolute;
@@ -302,6 +370,10 @@ td.is-today {
     text-align: center;
     margin-top: 10px;
     color:#333333;
+}
+#graph{
+    width:100%;
+    height:100%;
 }
 /* footer */
 footer{
