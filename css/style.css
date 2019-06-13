@@ -39,6 +39,15 @@ html,body,main{
     display: none;
 }
 /* １ページ目 */
+.bg{
+    width:100%;
+    height:100vh;
+    background-image: url("../image/bg.png");
+    background-size:contain;
+    z-index:-10;
+    position: fixed;
+    opacity: 0.6;
+}
 .input input,.input select{
     border: solid 1px gray; 
 }
@@ -48,11 +57,64 @@ html,body,main{
 #incomeForm{
     display: none;
 }
-
+.bg2{
+    width:70%;
+    height:55%;
+    margin: 40% 15% 0 15%;
+    border-radius: 25px;
+    background-color:white;
+    position: fixed;
+    opacity: 0.95;
+}
+.bg2 article{
+    width:80%;
+    height: 15%;
+    padding: 10px 0;
+    margin:0 10%;
+    
+}
+.bg2 article:nth-child(1),.bg2 article:nth-child(2){
+    border-bottom: dashed 2px var(--orange);
+}
+.artP{
+    text-align: center;
+}
+.artP p{
+    margin:5px 0;
+}
+.artI{
+    width: 80%;
+    margin-left: 10%;
+}
+.money{
+    margin-top: 30px !important;
+}
+.btn{
+    width:40%;
+    margin-left: 30%;
+    height:30px;
+    background-color:var(--green);
+    color:white;
+    border-radius:10px;
+    font-size:15px;
+    letter-spacing: 5px;
+    position: absolute;
+    bottom:20px;
+    left:0px;s
+}
 /* ２ページ目 */
 #calendar {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom:0px;
+    animation:none;
+}
+@keyframes calendardown {
+    0% {margin-bottom:200px;}
+    100% {margin-bottom:0px;}
+}
+#calendar ul{
+    display:none;
 }
 section {
     margin: 0 auto;
@@ -118,17 +180,6 @@ td.is-today {
     background-position: center center; 
     background-repeat: no-repeat;
 }
-#calendar{
-    margin-bottom:0px;
-    animation:none;
-}
-@keyframes calendardown {
-    0% {margin-bottom:200px;}
-    100% {margin-bottom:0px;}
-}
-#calendar ul{
-    display:none;
-}
 #pops{
     position:fixed;
     height:200px;
@@ -141,6 +192,7 @@ td.is-today {
     overflow: scroll;
     padding-bottom:50px;
     animation:none;
+    box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 0.6);
     
 }
 @keyframes popup {
@@ -154,12 +206,14 @@ td.is-today {
 
 .cross{
     position: absolute;
-    top:0px;
-    right:20px;
-    font-size: 1.8em;
-    color:white;
-    height:30px;
-    line-height:30px;
+    top:-44px;
+    right:30px;
+    font-size:40px;
+    color:white; 
+    line-height:30px; 
+}
+.cross:active{
+    color:#4C6627;
 }
 .bar{
     width:100%;
@@ -216,7 +270,39 @@ td.is-today {
 .confirmation{
     display: none;
 }
-
+.circleBox{
+    width:100vw;
+    height:100vh;
+}
+.circle {	
+    position: relative;
+    display: inline-block;
+    width: 80vw;
+    height: 80vw;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    border:solid 10px var(--green);
+    margin-top:40%;
+    margin-left:calc(10vw - 10px); 
+}
+#conf{
+    width: 100%;
+    height:100%;
+}
+#conf h2{
+    font-weight: normal;
+    font-size: 30px;
+    margin-top: 70px;
+    letter-spacing: 5px;
+    text-align: center;
+    color:#333333;
+}
+#conf p{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+    color:#333333;
+}
 /* footer */
 footer{
     position: fixed;
@@ -227,11 +313,12 @@ footer{
     padding: 10px 0px;
     background-color: var(--skyblue);
     z-index:1000;
+    box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 0.6);
 }
 footer i{
     width:calc(100%/3);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 35px;
     height: 100%;
 }
 #footerLeft{

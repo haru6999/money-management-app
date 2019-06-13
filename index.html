@@ -23,61 +23,65 @@
         <div class="sp">
             <!-- １ページ目 -->
             <section class="input">
+                <div class="bg"></div>
                 <!-- 支出ページ -->
                 <form name="myform1" id="spendingForm"> 
-                    <article class="money">
-                        <p>金額</p>
-                        <input type="text" name="money">
-                    </article>
-                    <article class="category">
-                        <p>カテゴリー</p>
-                        <select name="category">
-                            <option value="食費" label="食費">食費</option>
-                            <option value="外食費" label="外食費">外食費</option>
-                            <option value="日用品" label="日用品">日用品</option>
-                            <option value="交通費" label="交通費">交通費</option>
-                            <option value="衣服" label="衣服">衣服</option>
-                            <option value="交際費" label="交際費">交際費</option>
-                            <option value="趣味" label="趣味">趣味</option>
-                            <option value="その他" label="その他">その他</option>
-                        </select>
-                    </article>
-                    <article class="date">
-                        <p>日付</p>
-                        <input type="date" name="date" id="today">
-                    </article>
-                    <article class="preservation">
-                        <button name="btn" type="button" class="btn">送信</button>
-                    </article>
+                    <div class="bg2">
+                        <article class="money">
+                            <div class="artP"><p>金額</p></div>
+                            <input type="text" name="money" class="artI">
+                        </article>
+                        <article class="category">
+                            <div class="artP"><p>カテゴリー</p></div>
+                            <select name="category" class="artI">
+                                <option value="食費" label="食費">食費</option>
+                                <option value="外食費" label="外食費">外食費</option>
+                                <option value="日用品" label="日用品">日用品</option>
+                                <option value="交通費" label="交通費">交通費</option>
+                                <option value="衣服" label="衣服">衣服</option>
+                                <option value="交際費" label="交際費">交際費</option>
+                                <option value="趣味" label="趣味">趣味</option>
+                                <option value="その他" label="その他">その他</option>
+                                </select>
+                            </article>
+                            <article class="date">
+                                <div class="artP"><p>日付</p></div>
+                                <input type="date" name="date" id="today" class="artI">
+                            </article>
+                            <article class="preservation">
+                                <button name="btn" type="button" class="btn">保存</button>
+                            </article>
+                    </div>
                 </form> 
 
                 <!-- 収入ページ -->
                 <form name="myform2" id="incomeForm"> 
-                    <article class="money">
-                        <p>金額</p>
-                        <input type="text" name="money">
-                    </article>
-                    <article class="category">
-                        <p>カテゴリー</p>
-                        <select name="category">
-                            <option value="給料" label="給料">給料</option>
-                            <option value="その他" label="その他">その他</option>
-                        </select>
-                    </article>
-                    <article class="date">
-                        <p>日付</p>
-                        <input type="date" name="date" id="today2">
-                    </article>
-                    <article class="preservation">
-                        <button name="btn" type="button" class="btn">送信</button>
-                    </article>  
+                        <div class="bg2">
+                            <article class="money">
+                                <div class="artP"><p>金額</p></div>
+                                <input type="text" name="money" class="artI">
+                            </article>
+                            <article class="category">
+                                <div class="artP"><p>カテゴリー</p></div>
+                                <select name="category" class="artI">
+                                    <option value="給料" label="給料">給料</option>
+                                    <option value="その他" label="その他">その他</option>   
+                                </select>
+                            </article>
+                            <article class="date">
+                                <div class="artP"><p>日付</p></div>
+                                <input type="date" name="date" id="today2" class="artI">
+                            </article>
+                            <article class="preservation">
+                                <button name="btn" type="button" class="btn">保存</button>
+                            </article>
+                        </div>
                 </form>  
                 
                 <aside>
                     <input type="button" id="spending" value="支出">
                     <input type="button" id="income" value="収入">
                 </aside>
-                
             </section>
             <!-- ２ページ目 -->
             <section class="calender">
@@ -85,16 +89,19 @@
                 <button id="next" type="button"><i class="fas fa-chevron-right"></i></button>
                 <div id="calendar"></div>
                 <div id="pops">
-                    <i class="fas fa-times cross"></i>
+                    <p class="cross">×</p>
                     <div class="bar"></div>
                 </div>
             </section>
             <!-- ３ページ目 -->
             <section class="confirmation">
-                <div id="conf">
-
+                <div class="bg"></div>
+                <div class="circleBox">
+                    <div class="circle">
+                        <div id="conf">
+                        </div>
+                    </div>
                 </div>
-
             </section>
             <footer>
                 <i class="fas fa-pencil-alt" id="footerLeft"></i><i class="far fa-calendar-alt" id="footerCenter"></i><i class="fas fa-coins" id="footerRight"></i>

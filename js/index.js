@@ -159,7 +159,7 @@ document.myform1.btn.addEventListener('click', function() {
     let id2 = String(year0)+String(month0)+String(date0);
     var target2 = document.getElementById(id2);
     let newTag2 = document.createElement("li");
-    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">'+money+'円</p><button type="button" class="delate" onclick="delate(this)">削除</button>';
+    newTag2.innerHTML = '<p class="liCategory">'+category+'</p><p class="liMoney">-'+money+'円</p><button type="button" class="delate" onclick="delate(this)">削除</button>';
     target2.appendChild(newTag2);
     sum -= Number(money);
     console.log("合計:"+sum);
@@ -310,8 +310,8 @@ function moveCalendar(e) {
 
 
 var target = document.getElementById("pops");
-// for(var y=2010;y<=2020;y++){
-for(var y=2019;y<=2019;y++){
+for(var y=2010;y<=2020;y++){
+// for(var y=2019;y<=2019;y++){
     for(var m=1;m<=12;m++){
         for(var d=1;d<=31;d++){
             // ボタンが押されたらタグを作って追加
