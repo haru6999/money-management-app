@@ -211,18 +211,18 @@ section {
 #prev{
     position: absolute;
     top:40px;
-    left:60px;
+    left:30px;
     /* width:80px; */
     height:30px;
-    padding:0;
+    padding:0 30px;
 }
 #next{
     position: absolute;
     top:40px;
-    right:60px;
+    right:30px;
     /* width:80px; */
     height:30px;
-    padding:0;
+    padding:0 30px;
 }  
 h1 {
     font-size: 18px;
