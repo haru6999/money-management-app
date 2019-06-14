@@ -201,6 +201,9 @@ document.myform1.btn.addEventListener('click', function() {
             'animation': 'none'
         });
    },2000);
+
+    //金額の中身をリセット
+    document.getElementById( "target" ).value ="" ;    
     
 });
 // 収入
@@ -273,6 +276,9 @@ document.myform2.btn.addEventListener('click', function() {
             'animation': 'none'
         });
    },2000);
+
+   //金額の中身をリセット
+   document.getElementById( "target2" ).value ="" ;
 });
 
 
@@ -390,7 +396,16 @@ for(var y=2010;y<=2020;y++){
 }
 // 削除
 function delate(element) {
-    $(element).parent().remove(); 
+    $(element).parent().css({
+        'animation': 'delate 1s ease-out'
+    });
+    setTimeout(function(){
+        $(element).parent().css({
+            'animation': 'none'
+        });
+        $(element).parent().remove(); 
+   },1000);
+    
     var ele = element.id.split('-');
     if(ele[0] == 0){
         sum += Number(ele[1]);
@@ -399,7 +414,7 @@ function delate(element) {
         sum -= Number(ele[1]);
         document.getElementById("sum").innerHTML =sum+'円';
     }
-    
+
 }
 
 

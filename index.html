@@ -31,7 +31,8 @@
                     <div class="bg2">
                         <article class="money">
                             <div class="artP"><p>金額</p></div>
-                            <input type="text" name="money" class="artI" onSubmit="return check()">
+                            <input type="text" name="money" class="artI moneyInput" id="target" onSubmit="return check()">
+                            <p class="moneyP">円</p>
                         </article>
                         <article class="category">
                             <div class="artP"><p>カテゴリー</p></div>
@@ -61,7 +62,8 @@
                         <div class="bg2">
                             <article class="money">
                                 <div class="artP"><p>金額</p></div>
-                                <input type="text" name="money" class="artI" onSubmit="return check()">
+                                <input type="text" name="money" class="artI moneyInput" id="target2" onSubmit="return check()">
+                                <p class="moneyP">円</p>
                             </article>
                             <article class="category">
                                 <div class="artP"><p>カテゴリー</p></div>
@@ -88,7 +90,7 @@
             </section>
             <!-- ２ページ目 -->
             <section class="calender">
-                <button id="prev" type="button"><i class="fas fa-chevron-left"　id="prev"></i></button>
+                <button id="prev" type="button"><i class="fas fa-chevron-left"></i></button>
                 <button id="next" type="button"><i class="fas fa-chevron-right"></i></button>
                 <div id="calendar"></div>
                 <div id="pops">

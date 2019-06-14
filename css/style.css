@@ -61,7 +61,7 @@ input{
     width:100%;
     height:5vh;
     margin: 0 auto;
-    color:#999999;
+    color:#f577ab;
     animation:none;
 }
 @keyframes fade-in {
@@ -109,6 +109,15 @@ input{
 }
 .money{
     margin-top: 10vh !important;
+}
+.moneyInput{
+    width:70% !important;
+    display: inline;
+}
+.moneyP{
+    width:10%;
+    font-size: 17px;
+    display: inline;
 }
 .btn{
     width:40%;
@@ -192,6 +201,7 @@ section {
     width:100%;
     height:100%;
 }
+
 #prev{
     position: absolute;
     font-size: 1.5em;
@@ -199,9 +209,6 @@ section {
     left:40px;
     color:var(--green);
     width:80px;
-}
-#prev i::before,#next i::before{
-    z-index: -1;
 }
 #next{
     position: absolute;
@@ -309,6 +316,14 @@ td.is-today {
     list-style: none;
     display: none;
     height:0;
+}
+.calenderUl li{
+    animation:none;
+}
+@keyframes delate {
+    0% {background-color:white;opacity: 1;}
+    50%{background-color: #f577ab;opacity: 0.3;}
+    100% {background-color:white;opacity: 1}
 }
 #pops li{
     height:40px;
