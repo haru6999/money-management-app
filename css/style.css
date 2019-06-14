@@ -210,20 +210,20 @@ section {
 
 #prev{
     position: absolute;
-    font-size: 1.5em;
     top:40px;
-    left:40px;
-    color:var(--green);
-    width:80px;
+    left:60px;
+    /* width:80px; */
+    height:30px;
+    padding:0;
 }
 #next{
     position: absolute;
-    font-size: 1.5em;
     top:40px;
-    right:40px;
-    color:var(--green);
-    width:80px;
-}   
+    right:60px;
+    /* width:80px; */
+    height:30px;
+    padding:0;
+}  
 h1 {
     font-size: 18px;
     text-align: center;
@@ -397,6 +397,9 @@ td.is-today {
     text-align: center;
     margin-top: 10px;
     color:#333333;
+}
+.red{
+    color:#f577ab;
 }
 #graph{
     width:100%;

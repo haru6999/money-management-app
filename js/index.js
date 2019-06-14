@@ -191,6 +191,17 @@ document.myform1.btn.addEventListener('click', function() {
     sum -= Number(money);
     console.log("合計:"+sum);
     document.getElementById("sum").innerHTML =sum+'円';
+    if(sum<0){
+        $('#sum').css({
+            'color':'#f577ab'
+        })
+        console.log("aaa")
+    }else{
+        $('#sum').css({
+            'color':'#333333'
+        })
+        console.log("bbb")
+    }
     $('#comment').html('保存されました');
     $('#comment').css({
         'animation': 'fade-in 2s'
@@ -266,6 +277,17 @@ document.myform2.btn.addEventListener('click', function() {
     sum += Number(money);
     console.log("合計:"+sum);
     document.getElementById("sum").innerHTML =sum+'円';
+    if(sum<0){
+        $('#sum').css({
+            'color':'#f577ab'
+        })
+        console.log("aaa")
+    }else{
+        $('#sum').css({
+            'color':'#333333'
+        })
+        console.log("bbb")
+    }
     $('#comment').html('保存されました');
     $('#comment').css({
         'animation': 'fade-in 2s'
@@ -481,9 +503,8 @@ var newTagPop2 = document.createElement("div");
 newTagPop2.innerHTML = '<h2>貯金額</h2><p id="sum">'+sum+'円</p>';
 target2.appendChild(newTagPop2);
 
-document.querySelector('#prev').addEventListener('click', moveCalendar)
-document.querySelector('#next').addEventListener('click', moveCalendar)
-
+document.getElementById('prev').addEventListener('click', moveCalendar);
+document.getElementById('next').addEventListener('click', moveCalendar);
 
 showCalendar(year, month)
 // 今日の日付
