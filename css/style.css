@@ -154,6 +154,11 @@ aside{
     text-align: center;
     box-shadow: 0 5px 20px rgba(244, 162, 58, .5);
 }
+aside input{
+    border:none;
+    background:none;
+    -webkit-appearance:none;            
+}
 #spending{
     background-color: white;
     border:none;

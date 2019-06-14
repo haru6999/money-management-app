@@ -137,14 +137,14 @@ document.myform1.btn.addEventListener('click', function() {
     if(document.myform1.money.value.match(/[^0-9]+/) || document.myform1.money.value==""){
         $('#comment').html('金額を半角数字で記入してください');
         $('#comment').css({
-            'animation': 'fade-in 1s'
+            'animation': 'fade-in 2s'
         });
         setTimeout(function(){
             $('#comment').html(" ");
             $('#comment').css({
                 'animation': 'none'
             });
-        },1000);   
+        },2000);   
         return;
     }
 
@@ -212,14 +212,14 @@ document.myform2.btn.addEventListener('click', function() {
     if(document.myform2.money.value.match(/[^0-9]+/) || document.myform2.money.value==""){
         $('#comment').html('金額を半角数字で記入してください');
         $('#comment').css({
-            'animation': 'fade-in 1s'
+            'animation': 'fade-in 2s'
         });
         setTimeout(function(){
             $('#comment').html(" ");
             $('#comment').css({
                 'animation': 'none'
             });
-        },1000);   
+        },2000);   
         return;
     }
 
