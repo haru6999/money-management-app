@@ -157,7 +157,8 @@ aside{
 aside input{
     border:none;
     background:none;
-    -webkit-appearance:none;            
+    -webkit-appearance:none;       
+    border-radius: 0;     
 }
 #spending{
     background-color: white;
